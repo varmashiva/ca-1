@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spideee</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio src="./assets/chiptune-grooving-142242.mp3"></audio>
+    <div class="start_game">
+      <button type="start" class="button" onclick="openpopup()">
+        Start Game
+      </button>
+      <div class="start_popup" id="popup">
+        <input
+          type=""
+          class="name"
+          id="name"
+          placeholder="                Enter Your Name"
+          required
+        />
+        <input
+          type="text"
+          class="nick_name"
+          id="nickName"
+          placeholder="             Enter Your Nick Name"
+          required
+        />
+        <div class="in_start_buttons">
+          <button type="button" class="Start" id="start">Start</button>
+          <button type="game" class="Close" onclick="closepopup()">
+            close
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+    const nick = document.getElementById('nickName');
+      const name = document.getElementById('name');
+      console.log(name);
+      localStorage.setItem('name', name);
+      let popup = document.getElementById('popup');
+      function openpopup() {
+        popup.classList.add('open-popup');
+      }
+      function closepopup() {
+        popup.classList.remove('open-popup');
+      }
+      document.getElementById('start').onclick = () => {
+        localStorage.setItem('name',name.value);
+        localStorage.setItem('nick name', nick.value);
+        location.replace('./game.html');
+      };
+      
+      console.log()
+    </script>
+  </body>
+</html>
